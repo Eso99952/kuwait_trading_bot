@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Robô</title>
+</head>
+
+<body>
+  <h1>🤖 Painel do Robô Kuwaitiano 🚀</h1>
+
+  <button onclick="startBot()">▶️ Iniciar Robô</button>
+  <button onclick="stopBot()">🛑 Parar Robô</button>
+  <button onclick="generateReport()">📊 Gerar Relatório</button>
+
+  <script>
+    function startBot() {
+      fetch('/start_bot');
+      alert('✅ Robô Iniciado!');
+    }
+
+    function stopBot() {
+      fetch('/stop_bot');
+      alert('🛑 Robô Parado!');
+    }
+
+    function generateReport() {
+      fetch('/report');
+      alert('📊 Relatório Gerado!');
+    }
+  </script>
+</body>
+
+</html>
+
+
+

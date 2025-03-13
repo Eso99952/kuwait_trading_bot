@@ -1,0 +1,25 @@
+import smtplib
+from email.mime.text import MIMEText
+
+EMAIL_ADDRESS = "trindadeperfeita7@gmail.com"
+EMAIL_PASSWORD = "qwqj hfzk mlrf lixe"
+
+def send_test_email():
+    try:
+        msg = MIMEText("🔥 Teste de envio de e-mail do Kuwait Trading Bot!")
+        msg["Subject"] = "✅ Teste de E-mail"
+        msg["From"] = EMAIL_ADDRESS
+        msg["To"] = EMAIL_ADDRESS
+
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        server.send_message(msg)
+        server.quit()
+
+        print("✅ E-mail de teste enviado com sucesso!")
+    except Exception as e:
+        print(f"❌ Erro ao enviar e-mail: {e}")
+
+if __name__ == "__main__":
+    send_test_email()
