@@ -1,0 +1,10 @@
+!DOCTYPE html
+html
+head
+    script src=httpscode.jquery.comjquery-3.6.0.min.jsscript
+    script src=caminhodoseujavascript.jsscript
+head
+body
+    !-- O conteúdo do seu HTML aqui --
+body
+html

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel do Robô</title>
+  <title>Painel do Robô Kuwaitiano 🚀</title>
+  <link rel="stylesheet" href="/static/style.css">
 </head>
-
 <body>
   <h1>🤖 Painel do Robô Kuwaitiano 🚀</h1>
 
@@ -14,24 +13,18 @@
   <button onclick="stopBot()">🛑 Parar Robô</button>
   <button onclick="generateReport()">📊 Gerar Relatório</button>
 
-  <script>
-    function startBot() {
-      fetch('/start_bot');
-      alert('✅ Robô Iniciado!');
-    }
+  <h2>💹 Dados do Mercado:</h2>
+  <input type="text" id="symbol" placeholder="Símbolo da ação (ex: KSE:ABK)">
+  <button onclick="getMarketData()">🔍 Buscar Dados</button>
+  <div id="marketData"></div>
 
-    function stopBot() {
-      fetch('/stop_bot');
-      alert('🛑 Robô Parado!');
-    }
+  <h2>💰 Área PIX:</h2>
+  <input type="number" id="pixAmount" placeholder="Valor em KD">
+  <button onclick="depositPix()">➕ Depositar</button>
+  <button onclick="withdrawPix()">➖ Sacar</button>
 
-    function generateReport() {
-      fetch('/report');
-      alert('📊 Relatório Gerado!');
-    }
-  </script>
+  <script src="/static/script.js"></script>
 </body>
-
 </html>
 
 

@@ -1,3 +1,5 @@
+from services.bb_pix import criar_pix, consultar_pix
+
 from flask import Flask, render_template
 import os
 

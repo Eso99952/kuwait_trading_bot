@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investimentos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Tela de Login -->
+        <div id="login-section">
+            <h2 class="text-center">Login</h2>
+            <form id="login-form">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuário</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+            </form>
+        </div>
+
+        <!-- Tela de Investimentos -->
+        <div id="investment-section" class="d-none">
+            <h2 class="text-center">Área de Investimentos</h2>
+            <div class="mb-4">
+                <h5>Saldo Atual: <span id="balance">R$ 0,00</span></h5>
+            </div>
+            <div class="mb-3">
+                <label for="amount" class="form-label">Valor a Investir</label>
+                <input type="number" class="form-control" id="amount" placeholder="Digite o valor...">
+            </div>
+            <button class="btn btn-success w-100" onclick="investir()">Investir</button>
+            <button class="btn btn-danger w-100 mt-2" onclick="sacar()">Sacar</button>
+        </div>
+    </div>
+
+    <script>
+        // Simulação de Login
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('login-section').classList.add('d-none');
+            document.getElementById('investment-section').classList.remove('d-none');
+        });
+
+        let saldo = 100.00; // Saldo inicial
+        document.getElementById('balance').innerText = `R$ ${saldo.toFixed(2)}`;
+
+        // Investir
+        function investir() {
+            const valor = parseFloat(document.getElementById('amount').value);
+            if (valor > 0) {
+                saldo += valor;
+                document.getElementById('balance').innerText = `R$ ${saldo.toFixed(2)}`;
+                alert(`Investido com sucesso: R$ ${valor.toFixed(2)}`);
+            } else {
+                alert('Digite um valor válido.');
+            }
+        }
+
+        // Sacar
+        function sacar() {
+            const valor = parseFloat(document.getElementById('amount').value);
+            if (valor > 0 && valor <= saldo) {
+                saldo -= valor;
+                document.getElementById('balance').innerText = `R$ ${saldo.toFixed(2)}`;
+                alert(`Saque realizado com sucesso: R$ ${valor.toFixed(2)}`);
+            } else {
+                alert('Saldo insuficiente ou valor inválido.');
+            }
+        }
+    </script>
+</body>
+</html>
+

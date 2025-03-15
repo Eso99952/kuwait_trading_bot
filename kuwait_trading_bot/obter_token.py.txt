@@ -1,0 +1,17 @@
+import requests
+
+def obter_token():
+    # Substitua os valores abaixo com suas credenciais reais
+    url_auth = "https://oauth.bb.com.br/oauth/token"
+    credentials = {
+        "grant_type": "client_credentials",
+        "client_id": "SEU_CLIENT_ID",
+        "client_secret": "SEU_CLIENT_SECRET",
+        "scope": "pix.read pix.write"
+    }
+
+    response = requests.post(url_auth, data=credentials)
+    if response.status_code == 200:
+        return response.json().get("access_token")
+    else:
+        raise Exception(f"Erro ao autenticar: {response.json()}")
